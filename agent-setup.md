@@ -21,11 +21,20 @@ Protocol: tasks and their comments, subtasks, blockers and plan documents; chats
 and threads; pages; projects and participants. Reads and writes both — the
 server enforces the permissions of the account that signs in, not more.
 
+## The server URL
+
 - Server URL: `https://mcp.bridgeapp.ai/mcp`
 - OAuth scope: `bridgeapp:mcp`
 
-If your workspace is not on `bridgeapp.ai`, take the server URL from
-**Agents → Connect Apps** inside the app and use that instead.
+**Unless you were given a different one.** BridgeApp also runs on customers' own
+infrastructure, under domains that need not mention BridgeApp at all, and the
+**Connect Apps** page passes the right endpoint alongside these instructions
+when it asks an agent to set itself up. A URL you were handed always wins over
+the one printed here; substitute it into every command below. If you have
+neither, the workspace shows its endpoint under **Agents → Connect Apps**.
+
+Clients discover the scope on their own from the server's protected-resource
+metadata, so you never have to configure it.
 
 ## Claude Code
 

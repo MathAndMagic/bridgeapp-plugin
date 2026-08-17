@@ -11,20 +11,28 @@ back to a human outside the app, they need a URL they can click. Build it.
 ## The shape
 
 ```
-https://<workspace-slug>.bridgeapp.ai/#<path>
+https://<workspace-host>/#<path>
 ```
 
-Two things trip people up. The app is a **hash router**, so the path lives after
-`#` — a link without it lands on the workspace root. And the host carries the
-**workspace slug**, so a link built against the wrong slug opens the wrong
-workspace, or nothing.
+Only the `#<path>` half is fixed. The app is a **hash router**, so the path
+lives after `#` — a link without it lands on the workspace root.
 
-**MCP will not tell you the slug.** `get_current_user` returns only
+**The host is never yours to assume.** On the hosted service it looks like
+`<workspace-slug>.bridgeapp.ai`, but BridgeApp is also deployed on customers'
+own infrastructure, under domains that need not contain "bridge" or "bridgeapp"
+at all. A link built against the wrong host opens the wrong workspace, or
+nothing — and it looks perfectly valid while doing it.
+
+**MCP will not tell you the host.** `get_current_user` returns only
 `company_id`, `participant_type`, and `participant_id` — no workspace host, no
-name. So take the origin from a link the user already gave you: the message or
-task they shared, or the URL of the page they are looking at. If you have none,
-ask rather than inventing a host; a link to the wrong workspace looks right and
-goes nowhere.
+name. So copy the origin verbatim from something you were already given:
+
+1. A link passed with the request — the Share button sends one along with every
+   task and message it hands you.
+2. The link on any BridgeApp item the user pasted or you were asked about.
+3. The URL of the page the user is looking at.
+
+If you have none of those, ask. Do not fall back to `bridgeapp.ai`.
 
 ## Paths
 

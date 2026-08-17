@@ -33,6 +33,23 @@ Per-client instructions, including the ones an agent can follow on its own, live
 in [`agent-setup.md`](./agent-setup.md), published at
 `https://bridgeapp.ai/agent-setup.md`.
 
+## Self-hosted workspaces
+
+Every URL above belongs to the hosted service. BridgeApp also runs on customers'
+own infrastructure, under domains of their choosing, and this plugin ships the
+hosted endpoint in [`.mcp.json`](./plugins/bridgeapp/.mcp.json) — so installing
+it as-is on a self-hosted workspace points the agent at the wrong server.
+
+Override the URL after installing, with the endpoint shown on the workspace's
+**Agents → Connect Apps** page:
+
+```
+claude mcp add --scope user --transport http bridgeapp https://mcp.example.com/mcp
+```
+
+The skills themselves are endpoint-agnostic and work either way. `bridgeapp-links`
+covers the matching rule for building links back into a self-hosted workspace.
+
 ## What is in here
 
 ```
