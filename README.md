@@ -53,6 +53,13 @@ skills are shared.
   shares a message from BridgeApp with your agent.
 - **bridgeapp-context** — walking from a task, message, or page to everything it
   hangs off, and where to stop.
+- **bridgeapp-links** — the URL shapes and the mention syntax: how to give a
+  human a link into the app, and how to resolve the tokens and keys you meet
+  while reading.
+- **bridgeapp-investigation** — diagnosing a bug when the trail runs through
+  both the repository and BridgeApp. Read-only by construction.
+- **bridgeapp-task-creation** — turning a request into a well-formed task,
+  including the duplicate check that comes first.
 
 Because the skills carry the how, a shared link only has to carry the what: the
 Share action in BridgeApp sends a pointer to the message, not a copy of the
