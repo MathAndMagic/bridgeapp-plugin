@@ -19,9 +19,12 @@ Two things trip people up. The app is a **hash router**, so the path lives after
 **workspace slug**, so a link built against the wrong slug opens the wrong
 workspace, or nothing.
 
-Take the origin from a link the user already gave you, or from what
-`get_current_user` tells you about the workspace. Do not assume `bridgeapp.ai`
-bare.
+**MCP will not tell you the slug.** `get_current_user` returns only
+`company_id`, `participant_type`, and `participant_id` — no workspace host, no
+name. So take the origin from a link the user already gave you: the message or
+task they shared, or the URL of the page they are looking at. If you have none,
+ask rather than inventing a host; a link to the wrong workspace looks right and
+goes nowhere.
 
 ## Paths
 
