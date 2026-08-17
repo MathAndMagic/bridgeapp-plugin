@@ -48,8 +48,15 @@ skills are shared.
 
 ## Skills
 
+- **bridgeapp-thread** — reading a shared message or thread to the end,
+  including the agent transcripts inside it. This is what fires when someone
+  shares a message from BridgeApp with your agent.
 - **bridgeapp-context** — walking from a task, message, or page to everything it
   hangs off, and where to stop.
+
+Because the skills carry the how, a shared link only has to carry the what: the
+Share action in BridgeApp sends a pointer to the message, not a copy of the
+conversation and not a list of instructions.
 
 ## Verifying a connection
 
