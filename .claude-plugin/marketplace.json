@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "bridgeapp",
+  "description": "Official BridgeApp plugins: the BridgeApp MCP server plus skills for working with tasks, chats, threads, pages, and projects.",
+  "owner": {
+    "name": "Math & Magic",
+    "email": "support@bridgeapp.ai"
+  },
+  "plugins": [
+    {
+      "name": "bridgeapp",
+      "description": "Connects your coding agent to a BridgeApp workspace over MCP: read and act on tasks, chats, threads, pages, and projects under your own account's permissions. Bundles the hosted BridgeApp MCP server and skills for the workflows around it.",
+      "author": {
+        "name": "Math & Magic"
+      },
+      "category": "productivity",
+      "source": "./plugins/bridgeapp",
+      "homepage": "https://bridgeapp.ai"
+    }
+  ]
+}

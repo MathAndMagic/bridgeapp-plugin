@@ -1,0 +1,14 @@
+{
+  "name": "bridgeapp",
+  "displayName": "BridgeApp",
+  "version": "0.1.0",
+  "description": "Plugin that includes the BridgeApp MCP server and skills for working with a BridgeApp workspace",
+  "author": {
+    "name": "Math & Magic"
+  },
+  "homepage": "https://bridgeapp.ai",
+  "repository": "https://github.com/MathAndMagic/bridgeapp-plugin",
+  "keywords": ["bridgeapp", "mcp", "tasks", "chat", "workspace"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}
