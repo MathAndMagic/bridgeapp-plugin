@@ -48,6 +48,9 @@ skills are shared.
 
 ## Skills
 
+- **bridgeapp-task** — working from a task: its plan, comments, subtasks and
+  blockers, plus the project brief, which is the only place the repository and
+  the team's flow are recorded.
 - **bridgeapp-thread** — reading a shared message or thread to the end,
   including the agent transcripts inside it. This is what fires when someone
   shares a message from BridgeApp with your agent.
