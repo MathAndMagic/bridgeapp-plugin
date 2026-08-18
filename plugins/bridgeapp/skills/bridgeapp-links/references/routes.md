@@ -215,11 +215,11 @@ workspace host.
 Do not build links from these. They exist in the app's navigation tree or its
 route table without a working destination:
 
-- `/issues/:key` — the historical "task by key" path. It is still in the route
-  table, but it renders the chat page, finds no chat id, and bounces to
-  `/chats`. **There is no URL that opens a task by its `DEV-1234` key** — resolve
-  the key with `get_task_by_key`, then build
-  `/projects/<projectId>/board/<taskId>`.
+- `/issues/:id` — takes a task id, and resolves neither that nor anything else:
+  it renders the chat page, which looks for a chat id this route never supplies,
+  and bounces to `/chats`. Link a task through its project instead,
+  `/projects/<projectId>/board/<taskId>`. No URL accepts a `DEV-1234` key
+  anywhere in the app, so resolve the key with `get_task_by_key` first.
 - `/sign-in`, `/sign-up`, `/accept-invite`, `/reset-password`, `/confirm-user` —
   authentication moved to a separate `auth.<base-domain>` service; these are
   leftovers with no route mounted.

@@ -75,10 +75,11 @@ Two things not to do with it:
 
 Two of these repay a second look.
 
-**A task link needs the project id, and there is no link by key.** `DEV-1234` is
-how humans refer to a task, but no URL resolves it — `/issues/DEV-1234` looks
-plausible and lands on the chat list. Resolve the key with `get_task_by_key`,
-take `projectId` off the task, and build the path above. `board`, `backlog` and
+**A task link needs the project id.** `/issues/<taskId>` looks like the short
+way there and is not — the route resolves nothing and lands on the chat list.
+Nor does any URL accept a `DEV-1234` key: that is how humans refer to a task,
+not how the app routes to one. Resolve the key with `get_task_by_key`, take
+`projectId` off the task, and build the path above. `board`, `backlog` and
 `list` are interchangeable in that path; they only decide which view opens
 behind the task.
 
