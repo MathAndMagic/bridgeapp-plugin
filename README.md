@@ -58,6 +58,7 @@ plugins/bridgeapp/
   .cursor-plugin/plugin.json   Cursor manifest
   .mcp.json                    the hosted BridgeApp MCP server
   skills/                      how to work with a BridgeApp workspace
+    bridgeapp-links/references/routes.md   the app's route map
 ```
 
 One plugin serves every client: the manifests differ, the MCP server and the
@@ -75,7 +76,8 @@ skills are shared.
   hangs off, and where to stop.
 - **bridgeapp-links** — the URL shapes and the mention syntax: how to give a
   human a link into the app, and how to resolve the tokens and keys you meet
-  while reading.
+  while reading. Carries the full route map — every path in the app, web and
+  desktop, with the query params each one takes.
 - **bridgeapp-investigation** — diagnosing a bug when the trail runs through
   both the repository and BridgeApp. Read-only by construction.
 - **bridgeapp-task-creation** — turning a request into a well-formed task,
