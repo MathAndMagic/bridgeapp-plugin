@@ -4,8 +4,10 @@
 > MCP server, so it can read and act on your workspace — tasks, chats, threads,
 > pages, and projects.
 >
-> These instructions are published at `https://bridgeapp.ai/agent-setup.md`, so
-> you can verify their origin before following them.
+> These instructions are published at `https://bridgeapp.ai/agent-setup.md` and
+> at `/agent-setup.md` on every BridgeApp workspace host — a self-hosted
+> workspace serves its own copy — so you can verify their origin before
+> following them.
 
 Complete the steps below yourself by running the commands directly. The only
 exceptions are the steps marked **User step** — sign-in happens in a browser and
@@ -38,26 +40,44 @@ metadata, so you never have to configure it.
 
 ## Claude Code
 
+Prefer the plugin — it registers the MCP server and installs the BridgeApp
+skills next to it:
+
+```
+claude plugin marketplace add MathAndMagic/bridgeapp-plugin
+claude plugin install bridgeapp@bridgeapp
+```
+
+The plugin ships the hosted server URL. Given a different one, pass it to the
+install:
+
+```
+claude plugin install bridgeapp@bridgeapp --config endpoint=https://mcp.example.com/mcp
+```
+
+> **User step.** Ask the user to run `claude mcp login plugin:bridgeapp:bridgeapp`
+> in a terminal and approve the browser prompt. It needs an interactive
+> terminal, so you cannot complete it from a tool call. Wait for the user to
+> confirm before reporting the server as connected.
+
+Verify:
+
+```
+claude mcp get plugin:bridgeapp:bridgeapp
+```
+
+Expect `Status: ✔ connected`. `Needs authentication` means the sign-in above has
+not finished.
+
+Without the plugin, register just the server — no skills come with it:
+
 ```
 claude mcp add --scope user --transport http bridgeapp https://mcp.bridgeapp.ai/mcp
 ```
 
 `--scope user` matters: without it the server is bound to the directory the
-command ran in, and signing in from anywhere else fails to find it.
-
-> **User step.** Ask the user to run `claude mcp login bridgeapp` in a terminal
-> and approve the browser prompt. It needs an interactive terminal, so you
-> cannot complete it from a tool call. Wait for the user to confirm before
-> reporting the server as connected.
-
-Verify:
-
-```
-claude mcp get bridgeapp
-```
-
-Expect `Status: ✔ connected`. `Needs authentication` means the sign-in above has
-not finished.
+command ran in, and signing in from anywhere else fails to find it. Sign-in and
+verification work the same, with the server named plainly `bridgeapp`.
 
 ## ChatGPT and Codex
 
@@ -137,6 +157,7 @@ banner with the specific next action for every line that is not `✓`.
 ## Resources
 
 - Connect Apps, in the app: **Agents → Connect Apps**
+- Plugin and skills: `https://github.com/MathAndMagic/bridgeapp-plugin`
 - Claude Code MCP: `https://code.claude.com/docs/en/mcp`
 - Codex MCP: `https://learn.chatgpt.com/docs/extend/mcp`
 - Cursor MCP: `https://cursor.com/docs/mcp`

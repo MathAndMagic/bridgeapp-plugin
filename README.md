@@ -12,10 +12,11 @@ claude plugin install bridgeapp@bridgeapp
 ```
 
 Then sign in — this needs an interactive terminal, so run it yourself rather
-than asking an agent to:
+than asking an agent to. Claude Code addresses a plugin-provided server as
+`plugin:<plugin>:<server>`:
 
 ```
-claude mcp login bridgeapp
+claude mcp login plugin:bridgeapp:bridgeapp
 ```
 
 ## Other agents
@@ -31,17 +32,30 @@ from `https://mcp.bridgeapp.ai/.well-known/oauth-protected-resource`.
 
 Per-client instructions, including the ones an agent can follow on its own, live
 in [`agent-setup.md`](./agent-setup.md), published at
-`https://bridgeapp.ai/agent-setup.md`.
+`https://bridgeapp.ai/agent-setup.md` and at `/agent-setup.md` on every
+workspace host.
+
+That file is the master copy. The same file ships in `bridgeapp-web`
+(`public/agent-setup.md`, serving every workspace host) and in `bridge-website`
+(`public/agent-setup.md`, serving the apex domain) — edit it here and copy it to
+both in the same piece of work, byte-identical.
 
 ## Self-hosted workspaces
 
 Every URL above belongs to the hosted service. BridgeApp also runs on customers'
-own infrastructure, under domains of their choosing, and this plugin ships the
-hosted endpoint in [`.mcp.json`](./plugins/bridgeapp/.mcp.json) — so installing
-it as-is on a self-hosted workspace points the agent at the wrong server.
+own infrastructure, under domains of their choosing. The endpoint is a plugin
+setting that defaults to the hosted service — pass the one shown on the
+workspace's **Agents → Connect Apps** page when installing on a self-hosted
+workspace:
 
-Override the URL after installing, with the endpoint shown on the workspace's
-**Agents → Connect Apps** page:
+```
+claude plugin install bridgeapp@bridgeapp --config endpoint=https://mcp.example.com/mcp
+```
+
+An already-installed plugin is repointed with `/plugin configure
+bridgeapp@bridgeapp` in Claude Code. Clients without plugin settings — Cursor reads
+[`.mcp.json`](./plugins/bridgeapp/.mcp.json), which carries the hosted endpoint —
+register the server directly instead:
 
 ```
 claude mcp add --scope user --transport http bridgeapp https://mcp.example.com/mcp
