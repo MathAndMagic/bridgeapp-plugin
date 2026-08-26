@@ -4,7 +4,7 @@
   "description": "Official BridgeApp plugins: the BridgeApp MCP server plus skills for working with tasks, chats, threads, pages, and projects.",
   "owner": {
     "name": "Math & Magic",
-    "email": "support@bridgeapp.ai"
+    "email": "support@mathandmagic.ai"
   },
   "plugins": [
     {
