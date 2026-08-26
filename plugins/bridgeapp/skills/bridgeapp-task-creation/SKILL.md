@@ -47,12 +47,14 @@ user the task key, its title, and a URL they can open:
 
 ```
 DEV-1234 — Fix the token exchange returning null
-https://<workspace-host>/#/issues/DEV-1234
+https://<workspace-host>/#/projects/<projectId>/board/<taskId>
 ```
 
+`<projectId>` is the project you created the task in and `<taskId>` comes from
+the create result — a task link always carries both; there is no by-key URL.
 Build `<workspace-host>` from a link you were already given rather than assuming
 one — the workspace may be self-hosted on a domain of its own. The
-`bridgeapp-links` skill has the rule.
+`bridgeapp-links` skill has the rule and the full route map.
 
 That is the whole reply. No summary of the fields you filled, no offer to do
 more, no closing question. The user asked for a task; the task exists; the link
