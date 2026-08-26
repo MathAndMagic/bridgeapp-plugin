@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.bridgeapp/bridgeapp",
+  "description": "BridgeApp workspace over MCP: tasks, chats, threads, pages, and projects.",
+  "version": "1.0.0",
+  "websiteUrl": "https://bridgeapp.ai",
+  "repository": {
+    "url": "https://github.com/MathAndMagic/bridgeapp-plugin",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.bridgeapp.ai/mcp"
+    }
+  ]
+}
