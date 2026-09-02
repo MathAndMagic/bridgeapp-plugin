@@ -9,16 +9,27 @@
   },
   "homepage": "https://bridgeapp.ai/agent-setup.md",
   "repository": "https://github.com/MathAndMagic/bridgeapp-plugin",
-  "keywords": ["bridgeapp", "mcp", "tasks", "chat", "workspace", "project-management"],
+  "keywords": [
+    "bridgeapp",
+    "mcp",
+    "tasks",
+    "chat",
+    "workspace",
+    "project-management"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "BridgeApp",
-    "shortDescription": "Work your BridgeApp workspace from Codex",
+    "shortDescription": "Work your BridgeApp workspace",
     "longDescription": "Read and act on your BridgeApp workspace under your own account's permissions: tasks with their comments, subtasks, blockers and plan documents; chats and threads; pages; projects and their participants. The bundled skills teach Codex how to work from a task, read a thread to the end, create well-formed tasks, and build links back into the workspace.",
     "developerName": "Math & Magic",
     "category": "Productivity",
-    "capabilities": ["Interactive", "Read", "Write"],
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
     "websiteURL": "https://bridgeapp.ai",
     "privacyPolicyURL": "https://bridgeapp.ai/legal/privacy-policy",
     "termsOfServiceURL": "https://bridgeapp.ai/legal/terms-of-service",
