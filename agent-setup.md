@@ -81,19 +81,28 @@ verification work the same, with the server named plainly `bridgeapp`.
 
 ## ChatGPT and Codex
 
-One configuration serves the ChatGPT desktop app, the Codex CLI, and the IDE
-extension — they share `~/.codex/config.toml`.
+Prefer the plugin — it registers the MCP server and installs the BridgeApp
+skills next to it. One installation serves the ChatGPT desktop app and the
+Codex CLI, which share `~/.codex`:
+
+```
+codex plugin marketplace add MathAndMagic/bridgeapp-plugin
+codex plugin add bridgeapp@bridgeapp
+```
+
+> **User step.** Ask the user to run `codex mcp login bridgeapp` in a terminal
+> and approve the browser prompt. It needs an interactive terminal, so you
+> cannot complete it from a tool call.
+
+Given a non-default server URL, register the server directly instead — the
+plugin ships the hosted endpoint and Codex cannot repoint it:
 
 ```
 codex mcp add bridgeapp --url https://mcp.bridgeapp.ai/mcp
 ```
 
-This writes the configuration and starts the OAuth flow on its own.
-
-> **User step.** Ask the user to approve the browser prompt that opens. If no
-> browser opens, they can run `codex mcp login bridgeapp`.
-
-Without the CLI, add the block by hand to `~/.codex/config.toml`:
+This writes the configuration and starts the OAuth flow on its own. Without
+the CLI, add the block by hand to `~/.codex/config.toml`:
 
 ```toml
 [mcp_servers.bridgeapp]
