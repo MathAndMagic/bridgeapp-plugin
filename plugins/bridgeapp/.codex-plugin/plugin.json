@@ -1,0 +1,46 @@
+{
+  "name": "bridgeapp",
+  "version": "0.3.0",
+  "description": "Connects Codex to a BridgeApp workspace over MCP — tasks, chats, threads, pages, and projects — with skills for the workflows around them.",
+  "author": {
+    "name": "Math & Magic",
+    "email": "support@mathandmagic.ai",
+    "url": "https://bridgeapp.ai"
+  },
+  "homepage": "https://bridgeapp.ai/agent-setup.md",
+  "repository": "https://github.com/MathAndMagic/bridgeapp-plugin",
+  "keywords": [
+    "bridgeapp",
+    "mcp",
+    "tasks",
+    "chat",
+    "workspace",
+    "project-management"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "BridgeApp",
+    "shortDescription": "Work your BridgeApp workspace",
+    "longDescription": "Read and act on your BridgeApp workspace under your own account's permissions: tasks with their comments, subtasks, blockers and plan documents; chats and threads; pages; projects and their participants. The bundled skills teach Codex how to work from a task, read a thread to the end, create well-formed tasks, and build links back into the workspace.",
+    "developerName": "Math & Magic",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://bridgeapp.ai",
+    "privacyPolicyURL": "https://bridgeapp.ai/legal/privacy-policy",
+    "termsOfServiceURL": "https://bridgeapp.ai/legal/terms-of-service",
+    "defaultPrompt": [
+      "Show my ongoing BridgeApp tasks",
+      "Read BridgeApp task DEV-1234 and plan the work",
+      "Turn this bug into a BridgeApp task"
+    ],
+    "brandColor": "#1154EA",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.png",
+    "screenshots": []
+  }
+}
