@@ -19,6 +19,20 @@ than asking an agent to. Claude Code addresses a plugin-provided server as
 claude mcp login plugin:bridgeapp:bridgeapp
 ```
 
+## Codex and ChatGPT
+
+The same plugin installs into Codex — MCP server and skills together:
+
+```
+codex plugin marketplace add MathAndMagic/bridgeapp-plugin
+codex plugin add bridgeapp@bridgeapp
+```
+
+Codex asks you to sign in to BridgeApp the first time a tool is used. The
+manifest lives in `.codex-plugin/plugin.json` and the marketplace in
+`.agents/plugins/marketplace.json`; both read the same `skills/` and `.mcp.json`
+as the Claude Code and Cursor manifests.
+
 ## Other agents
 
 Point any MCP client that speaks streamable HTTP with OAuth at:
@@ -70,6 +84,7 @@ covers the matching rule for building links back into a self-hosted workspace.
 plugins/bridgeapp/
   .claude-plugin/plugin.json   Claude Code manifest
   .cursor-plugin/plugin.json   Cursor manifest
+  .codex-plugin/plugin.json    Codex / ChatGPT manifest (directory metadata, logo)
   .mcp.json                    the hosted BridgeApp MCP server
   skills/                      how to work with a BridgeApp workspace
     bridgeapp-links/references/routes.md   the app's route map
