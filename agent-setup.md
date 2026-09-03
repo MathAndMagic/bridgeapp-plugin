@@ -51,15 +51,18 @@ claude plugin install bridgeapp@bridgeapp
 The plugin ships the hosted server URL and cannot be repointed. Given a
 different one, skip the plugin and register the server directly — see below.
 
-> **User step.** Ask the user to run `claude mcp login plugin:bridgeapp:bridgeapp`
+> **User step.** Ask the user to run
+> `claude mcp login plugin:bridgeapp:bridgeapp || claude mcp login bridgeapp`
 > in a terminal and approve the browser prompt. It needs an interactive
 > terminal, so you cannot complete it from a tool call. Wait for the user to
-> confirm before reporting the server as connected.
+> confirm before reporting the server as connected. The fallback matters: when
+> a `bridgeapp` server was already registered by hand, Claude Code keeps that
+> entry and adds no plugin copy, so the server answers to the bare name.
 
 Verify:
 
 ```
-claude mcp get plugin:bridgeapp:bridgeapp
+claude mcp get plugin:bridgeapp:bridgeapp || claude mcp get bridgeapp
 ```
 
 Expect `Status: ✔ connected`. `Needs authentication` means the sign-in above has
