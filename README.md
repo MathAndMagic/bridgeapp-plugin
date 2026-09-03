@@ -13,10 +13,12 @@ claude plugin install bridgeapp@bridgeapp
 
 Then sign in — this needs an interactive terminal, so run it yourself rather
 than asking an agent to. Claude Code addresses a plugin-provided server as
-`plugin:<plugin>:<server>`:
+`plugin:<plugin>:<server>`, unless a `bridgeapp` server was already registered
+by hand — then it keeps that entry, adds no plugin copy, and the bare name is
+the one to sign in to:
 
 ```
-claude mcp login plugin:bridgeapp:bridgeapp
+claude mcp login plugin:bridgeapp:bridgeapp || claude mcp login bridgeapp
 ```
 
 ## Codex and ChatGPT
