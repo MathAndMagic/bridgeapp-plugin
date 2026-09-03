@@ -57,25 +57,19 @@ both in the same piece of work, byte-identical.
 ## Self-hosted workspaces
 
 Every URL above belongs to the hosted service. BridgeApp also runs on customers'
-own infrastructure, under domains of their choosing. The endpoint is a plugin
-setting that defaults to the hosted service — pass the one shown on the
-workspace's **Agents → Connect Apps** page when installing on a self-hosted
-workspace:
-
-```
-claude plugin install bridgeapp@bridgeapp --config endpoint=https://mcp.example.com/mcp
-```
-
-An already-installed plugin is repointed with `/plugin configure
-bridgeapp@bridgeapp` in Claude Code. Clients without plugin settings — Cursor reads
-[`.mcp.json`](./plugins/bridgeapp/.mcp.json), which carries the hosted endpoint —
-register the server directly instead:
+own infrastructure, under domains of their choosing, and the plugin ships the
+hosted endpoint in [`.mcp.json`](./plugins/bridgeapp/.mcp.json) — deliberately
+as a plain value: Claude Code substitutes plugin settings unreliably across
+versions, and a server that silently fails to register is worse than a fixed
+URL. On a self-hosted workspace, register the workspace's own endpoint — shown
+on its **Agents → Connect Apps** page — directly:
 
 ```
 claude mcp add --scope user --transport http bridgeapp https://mcp.example.com/mcp
 ```
 
-The skills themselves are endpoint-agnostic and work either way. `bridgeapp-links`
+The plugin's skills still apply; the plugin's own hosted server stays
+unauthenticated and can be ignored or removed from `/mcp`. `bridgeapp-links`
 covers the matching rule for building links back into a self-hosted workspace.
 
 ## What is in here
