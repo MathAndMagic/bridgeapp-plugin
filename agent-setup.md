@@ -48,12 +48,8 @@ claude plugin marketplace add MathAndMagic/bridgeapp-plugin
 claude plugin install bridgeapp@bridgeapp
 ```
 
-The plugin ships the hosted server URL. Given a different one, pass it to the
-install:
-
-```
-claude plugin install bridgeapp@bridgeapp --config endpoint=https://mcp.example.com/mcp
-```
+The plugin ships the hosted server URL and cannot be repointed. Given a
+different one, skip the plugin and register the server directly — see below.
 
 > **User step.** Ask the user to run `claude mcp login plugin:bridgeapp:bridgeapp`
 > in a terminal and approve the browser prompt. It needs an interactive
@@ -69,7 +65,8 @@ claude mcp get plugin:bridgeapp:bridgeapp
 Expect `Status: ✔ connected`. `Needs authentication` means the sign-in above has
 not finished.
 
-Without the plugin, register just the server — no skills come with it:
+Without the plugin, or on a workspace with its own server URL, register just
+the server — no skills come with it:
 
 ```
 claude mcp add --scope user --transport http bridgeapp https://mcp.bridgeapp.ai/mcp
