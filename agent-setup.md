@@ -16,6 +16,13 @@ that blocks on an interactive prompt.
 
 Every command here is safe to re-run on a machine where setup already happened.
 
+**If you cannot write to the user's machine, stop here.** The Claude and ChatGPT
+apps run their agents in cloud sandboxes, and a sandboxed shell — Claude Code's
+included — cannot reach the user's configuration: whatever you install there
+never reaches the app the user talks to. Do not attempt the setup. Send the user
+to **Agents → Connect Apps** in their BridgeApp workspace instead; it walks them
+through their app's own settings.
+
 ## What this gives you
 
 One MCP server, `bridgeapp`, exposing the workspace over the Model Context
@@ -29,14 +36,21 @@ server enforces the permissions of the account that signs in, not more.
 - OAuth scope: `bridgeapp:mcp`
 
 **Unless you were given a different one.** BridgeApp also runs on customers' own
-infrastructure, under domains that need not mention BridgeApp at all, and the
-**Connect Apps** page passes the right endpoint alongside these instructions
-when it asks an agent to set itself up. A URL you were handed always wins over
-the one printed here; substitute it into every command below. If you have
-neither, the workspace shows its endpoint under **Agents → Connect Apps**.
+infrastructure, under domains that need not mention BridgeApp at all. A URL you
+were handed always wins over the one printed here; substitute it into every
+command below. If you have none, the workspace shows its endpoint under
+**Agents → Connect Apps**.
 
 Clients discover the scope on their own from the server's protected-resource
 metadata, so you never have to configure it.
+
+## One workspace per connection
+
+Signing in picks one BridgeApp workspace, and the connection reaches only that
+workspace. To work in another, the user disconnects BridgeApp in their app and
+connects it again, choosing the other workspace at sign-in. When the user asks
+about something your tools cannot find, consider this before concluding it does
+not exist.
 
 ## Claude Code
 
