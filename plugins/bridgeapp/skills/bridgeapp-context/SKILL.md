@@ -17,6 +17,7 @@ you need and stop.
 | `@Task:<uuid>` mention token | `get_task` — it is a token, not a URL |
 | Chat message | `list_thread_messages` for its thread, else `list_chat_messages` |
 | Page link | `get_page` |
+| Any other BridgeApp link | `digest_bridgeapp_link`, then the getter for the type it returns |
 | Nothing specific | `get_current_user`, then `list_projects` |
 
 ## Walking outward

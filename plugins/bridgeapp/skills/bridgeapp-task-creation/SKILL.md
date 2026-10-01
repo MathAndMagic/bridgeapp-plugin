@@ -31,8 +31,8 @@ actually discussed. Do not invent acceptance criteria nobody agreed to.
 
 Carry over what makes it actionable: the originating thread, related tasks, the
 error text as it appeared, the reproduction if there was one. Link them —
-mention tokens when the text lives inside BridgeApp, URLs when it does not; see
-`bridgeapp-links`.
+`format_bridgeapp_mention` when the text lives inside BridgeApp,
+`build_bridgeapp_link` when it does not.
 
 Set the type from the request. Use the type the user named; otherwise infer it
 from the nature of the work.
@@ -50,11 +50,10 @@ DEV-1234 — Fix the token exchange returning null
 https://<workspace-host>/#/projects/<projectId>/board/<taskId>
 ```
 
-`<projectId>` is the project you created the task in and `<taskId>` comes from
-the create result — a task link always carries both; there is no by-key URL.
-Build `<workspace-host>` from a link you were already given rather than assuming
-one — the workspace may be self-hosted on a domain of its own. The
-`bridgeapp-links` skill has the rule and the full route map.
+Get the URL from `build_bridgeapp_link` with the task id from the create result.
+Never write it by hand: the server knows the workspace host, which may be a
+self-hosted domain of its own, and the route, which needs the project as well
+as the task — there is no by-key URL.
 
 That is the whole reply. No summary of the fields you filled, no offer to do
 more, no closing question. The user asked for a task; the task exists; the link

@@ -71,8 +71,9 @@ claude mcp add --scope user --transport http bridgeapp https://mcp.example.com/m
 ```
 
 The plugin's skills still apply; the plugin's own hosted server stays
-unauthenticated and can be ignored or removed from `/mcp`. `bridgeapp-links`
-covers the matching rule for building links back into a self-hosted workspace.
+unauthenticated and can be ignored or removed from `/mcp`. Links back into the
+workspace come from the server's `build_bridgeapp_link` tool, so they carry the
+self-hosted domain on their own.
 
 ## What is in here
 
@@ -83,7 +84,6 @@ plugins/bridgeapp/
   .codex-plugin/plugin.json    Codex / ChatGPT manifest (directory metadata, logo)
   .mcp.json                    the hosted BridgeApp MCP server
   skills/                      how to work with a BridgeApp workspace
-    bridgeapp-links/references/routes.md   the app's route map
 ```
 
 One plugin serves every client: the manifests differ, the MCP server and the
@@ -99,10 +99,6 @@ skills are shared.
   shares a message from BridgeApp with your agent.
 - **bridgeapp-context** — walking from a task, message, or page to everything it
   hangs off, and where to stop.
-- **bridgeapp-links** — the URL shapes and the mention syntax: how to give a
-  human a link into the app, and how to resolve the tokens and keys you meet
-  while reading. Carries the full route map — every path in the app, web and
-  desktop, with the query params each one takes.
 - **bridgeapp-investigation** — diagnosing a bug when the trail runs through
   both the repository and BridgeApp. Read-only by construction.
 - **bridgeapp-task-creation** — turning a request into a well-formed task,
