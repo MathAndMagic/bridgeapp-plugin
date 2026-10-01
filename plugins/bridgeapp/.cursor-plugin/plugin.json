@@ -6,6 +6,7 @@
   "author": {
     "name": "Math & Magic"
   },
+  "license": "MIT",
   "homepage": "https://bridgeapp.ai",
   "repository": "https://github.com/MathAndMagic/bridgeapp-plugin",
   "keywords": ["bridgeapp", "mcp", "tasks", "chat", "workspace"],

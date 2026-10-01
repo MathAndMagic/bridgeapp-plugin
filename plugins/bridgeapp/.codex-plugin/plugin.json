@@ -7,6 +7,7 @@
     "email": "support@mathandmagic.ai",
     "url": "https://bridgeapp.ai"
   },
+  "license": "MIT",
   "homepage": "https://bridgeapp.ai/agent-setup.md",
   "repository": "https://github.com/MathAndMagic/bridgeapp-plugin",
   "keywords": [
