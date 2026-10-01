@@ -4,5 +4,7 @@
   "version": "0.4.0",
   "author": {
     "name": "Math & Magic"
-  }
+  },
+  "license": "MIT",
+  "privacyPolicyUrl": "https://bridgeapp.ai/legal/privacy-policy"
 }
