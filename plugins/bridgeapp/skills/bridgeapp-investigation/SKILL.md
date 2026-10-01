@@ -82,9 +82,9 @@ Prioritized options with effort and risk. Recommend one. If a hotfix and a
 proper fix differ, give both.
 ```
 
-Keep it as short as the problem allows. Link BridgeApp objects as URLs, not
-mention tokens — you are writing into a terminal, not into the app. See
-`bridgeapp-links`.
+Keep it as short as the problem allows. Link BridgeApp objects as URLs from
+`build_bridgeapp_link`, not mention tokens — you are writing into a terminal,
+not into the app.
 
 ## Anti-patterns
 

@@ -1,6 +1,6 @@
 {
   "name": "bridgeapp",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Connects Codex to a BridgeApp workspace over MCP — tasks, chats, threads, pages, and projects — with skills for the workflows around them.",
   "author": {
     "name": "Math & Magic",
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "BridgeApp",
     "shortDescription": "Work your BridgeApp workspace",
-    "longDescription": "Read and act on your BridgeApp workspace under your own account's permissions: tasks with their comments, subtasks, blockers and plan documents; chats and threads; pages; projects and their participants. The bundled skills teach Codex how to work from a task, read a thread to the end, create well-formed tasks, and build links back into the workspace.",
+    "longDescription": "Read and act on your BridgeApp workspace under your own account's permissions: tasks with their comments, subtasks, blockers and plan documents; chats and threads; pages; projects and their participants. The bundled skills teach Codex how to work from a task, read a thread to the end, investigate a bug across the code and the workspace, and create well-formed tasks.",
     "developerName": "Math & Magic",
     "category": "Productivity",
     "capabilities": [

@@ -1,7 +1,7 @@
 {
   "name": "bridgeapp",
   "displayName": "BridgeApp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Plugin that includes the BridgeApp MCP server and skills for working with a BridgeApp workspace",
   "author": {
     "name": "Math & Magic"

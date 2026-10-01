@@ -1,10 +1,25 @@
 {
   "name": "bridgeapp",
-  "description": "Plugin that includes the BridgeApp MCP server and skills for working with a BridgeApp workspace",
-  "version": "0.4.0",
+  "displayName": "BridgeApp",
+  "description": "Connects Claude to a BridgeApp workspace over MCP — tasks, chats, threads, pages, and projects — with skills for the workflows around them.",
+  "version": "0.5.0",
   "author": {
-    "name": "Math & Magic"
+    "name": "Math & Magic",
+    "email": "support@mathandmagic.ai",
+    "url": "https://bridgeapp.ai"
   },
   "license": "MIT",
-  "privacyPolicyUrl": "https://bridgeapp.ai/legal/privacy-policy"
+  "homepage": "https://bridgeapp.ai",
+  "repository": "https://github.com/MathAndMagic/bridgeapp-plugin",
+  "documentationUrl": "https://bridgeapp.ai/agent-setup.md",
+  "supportUrl": "mailto:support@mathandmagic.ai",
+  "privacyPolicyUrl": "https://bridgeapp.ai/legal/privacy-policy",
+  "termsOfServiceUrl": "https://bridgeapp.ai/legal/terms-of-service",
+  "keywords": [
+    "bridgeapp",
+    "tasks",
+    "project-management",
+    "chat",
+    "workspace"
+  ]
 }
