@@ -54,8 +54,8 @@ not exist.
 
 ## Claude Code
 
-Prefer the plugin — it registers the MCP server and installs the BridgeApp
-skills next to it:
+Install the plugin on every workspace — it registers the MCP server and installs
+the BridgeApp skills next to it:
 
 ```
 claude plugin marketplace add MathAndMagic/bridgeapp-plugin
@@ -63,7 +63,9 @@ claude plugin install bridgeapp@bridgeapp
 ```
 
 The plugin ships the hosted server URL and cannot be repointed. Given a
-different one, skip the plugin and register the server directly — see below.
+different one, install the plugin anyway for its skills, then skip the sign-in
+below and register the workspace's server instead — see the end of this
+section.
 
 > **User step.** Ask the user to run
 > `claude mcp login plugin:bridgeapp:bridgeapp || claude mcp login bridgeapp`
@@ -82,8 +84,8 @@ claude mcp get plugin:bridgeapp:bridgeapp || claude mcp get bridgeapp
 Expect `Status: ✔ connected`. `Needs authentication` means the sign-in above has
 not finished.
 
-Without the plugin, or on a workspace with its own server URL, register just
-the server — no skills come with it:
+On a workspace with its own server URL, register that server after installing
+the plugin:
 
 ```
 claude mcp add --scope user --transport http bridgeapp https://mcp.bridgeapp.ai/mcp
@@ -91,13 +93,16 @@ claude mcp add --scope user --transport http bridgeapp https://mcp.bridgeapp.ai/
 
 `--scope user` matters: without it the server is bound to the directory the
 command ran in, and signing in from anywhere else fails to find it. Sign-in and
-verification work the same, with the server named plainly `bridgeapp`.
+verification work the same, with the server named plainly `bridgeapp`:
+`claude mcp login bridgeapp` and `claude mcp get bridgeapp`. Leave the plugin's
+own server, `plugin:bridgeapp:bridgeapp`, unauthenticated — it points at the
+hosted service, not the workspace.
 
 ## ChatGPT and Codex
 
-Prefer the plugin — it registers the MCP server and installs the BridgeApp
-skills next to it. One installation serves the ChatGPT desktop app and the
-Codex CLI, which share `~/.codex`:
+Install the plugin on every workspace — it registers the MCP server and installs
+the BridgeApp skills next to it. One installation serves the ChatGPT desktop app
+and the Codex CLI, which share `~/.codex`:
 
 ```
 codex plugin marketplace add MathAndMagic/bridgeapp-plugin
@@ -108,18 +113,21 @@ codex plugin add bridgeapp@bridgeapp
 > and approve the browser prompt. It needs an interactive terminal, so you
 > cannot complete it from a tool call.
 
-Given a non-default server URL, register the server directly instead — the
-plugin ships the hosted endpoint and Codex cannot repoint it:
+Given a non-default server URL, install the plugin anyway for its skills and
+register the workspace's server next to it, under its own name — the plugin
+ships the hosted endpoint and Codex cannot repoint it:
 
 ```
-codex mcp add bridgeapp --url https://mcp.bridgeapp.ai/mcp
+codex mcp add bridgeapp-workspace --url https://mcp.bridgeapp.ai/mcp
 ```
 
-This writes the configuration and starts the OAuth flow on its own. Without
+This writes the configuration and starts the OAuth flow on its own. Skip the
+`codex mcp login bridgeapp` step above: the plugin's own `bridgeapp` server
+points at the hosted service, not the workspace, and stays signed out. Without
 the CLI, add the block by hand to `~/.codex/config.toml`:
 
 ```toml
-[mcp_servers.bridgeapp]
+[mcp_servers.bridgeapp-workspace]
 url = "https://mcp.bridgeapp.ai/mcp"
 ```
 

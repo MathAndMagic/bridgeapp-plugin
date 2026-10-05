@@ -31,7 +31,12 @@ codex plugin add bridgeapp@bridgeapp
 ```
 
 Codex asks you to sign in to BridgeApp the first time a tool is used. The
-manifest lives in `.codex-plugin/plugin.json` and the marketplace in
+ChatGPT desktop app shares `~/.codex` with Codex, so the install above serves
+both. To install from the app instead, open **Plugins**, choose **Add
+marketplace** and then **Add from a repository**, enter
+`MathAndMagic/bridgeapp-plugin`, and install BridgeApp from that marketplace.
+
+The manifest lives in `.codex-plugin/plugin.json` and the marketplace in
 `.agents/plugins/marketplace.json`; both read the same `skills/` and `.mcp.json`
 as the Claude Code and Cursor manifests.
 
@@ -63,17 +68,28 @@ own infrastructure, under domains of their choosing, and the plugin ships the
 hosted endpoint in [`.mcp.json`](./plugins/bridgeapp/.mcp.json) — deliberately
 as a plain value: Claude Code substitutes plugin settings unreliably across
 versions, and a server that silently fails to register is worse than a fixed
-URL. On a self-hosted workspace, register the workspace's own endpoint — shown
-on its **Agents → Connect Apps** page — directly:
+URL. On a self-hosted workspace, install the plugin first anyway — the skills
+apply to any workspace — and then register the workspace's own endpoint, shown
+on its **Agents → Connect Apps** page, next to it.
+
+Claude Code:
 
 ```
 claude mcp add --scope user --transport http bridgeapp https://mcp.example.com/mcp
+claude mcp login bridgeapp
 ```
 
-The plugin's skills still apply; the plugin's own hosted server stays
-unauthenticated and can be ignored or removed from `/mcp`. Links back into the
-workspace come from the server's `build_bridgeapp_link` tool, so they carry the
-self-hosted domain on their own.
+Codex and the ChatGPT desktop app, under a name of its own so it does not
+replace the plugin's `bridgeapp` entry (`add` starts the sign-in itself):
+
+```
+codex mcp add bridgeapp-workspace --url https://mcp.example.com/mcp
+```
+
+The plugin's own hosted server stays unauthenticated — do not sign in to it —
+and can be ignored or removed. Links back into the workspace come from the
+server's `build_bridgeapp_link` tool, so they carry the self-hosted domain on
+their own.
 
 ## What is in here
 
