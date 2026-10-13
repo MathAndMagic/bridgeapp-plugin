@@ -4,8 +4,9 @@ Work your [BridgeApp](https://bridgeapp.ai) workspace from Claude. The plugin
 connects Claude to the BridgeApp MCP server, so it can read and act on your
 tasks, chats, threads, pages, and projects, and adds skills that teach it the
 workflows around them: picking up a task with its plan and blockers, reading a
-shared thread to the end, investigating a bug reported in BridgeApp, and
-turning a conversation into a well-formed task.
+shared thread to the end, investigating a bug reported in BridgeApp,
+turning a conversation into a well-formed task, and writing a spec from the
+decisions already taken.
 
 ## What you get
 
@@ -20,9 +21,12 @@ turning a conversation into a well-formed task.
   - **bridgeapp-context** — walk from a task, message, page, or link to what it
     hangs off, and stop there.
   - **bridgeapp-investigation** — diagnose a bug whose trail runs through both
-    the code and BridgeApp. Read-only.
+    the code and BridgeApp, or find out what was decided about something and
+    by whom. Read-only.
   - **bridgeapp-task-creation** — create a task from a request, checking for
     duplicates first.
+  - **bridgeapp-spec** — write a spec from the decisions already taken, asking
+    the author about contradictions and gaps.
 
 ## What it sends where
 

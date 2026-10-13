@@ -2,7 +2,7 @@
   "name": "bridgeapp",
   "displayName": "BridgeApp",
   "description": "Connects Claude to a BridgeApp workspace over MCP — tasks, chats, threads, pages, and projects — with skills for the workflows around them.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": {
     "name": "Math & Magic",
     "email": "support@mathandmagic.ai",
