@@ -116,9 +116,12 @@ skills are shared.
 - **bridgeapp-context** — walking from a task, message, or page to everything it
   hangs off, and where to stop.
 - **bridgeapp-investigation** — diagnosing a bug when the trail runs through
-  both the repository and BridgeApp. Read-only by construction.
+  both the repository and BridgeApp, or finding out what was decided about
+  something and by whom. Read-only by construction.
 - **bridgeapp-task-creation** — turning a request into a well-formed task,
   including the duplicate check that comes first.
+- **bridgeapp-spec** — writing a spec from the decisions already taken, asking
+  the author about contradictions and gaps.
 
 Because the skills carry the how, a shared link only has to carry the what: the
 Share action in BridgeApp sends a pointer to the message, not a copy of the
