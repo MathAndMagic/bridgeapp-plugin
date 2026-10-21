@@ -6,8 +6,10 @@ projects under the signed-in account's own permissions.
 
 ## Claude and Claude Code
 
-BridgeApp is in the Claude directory. In Claude on the web, on desktop or in
-Cowork, open **Customize → Plugins → Discover**, find BridgeApp and add it, then
+BridgeApp is in the Claude directory. Open
+[the BridgeApp plugin](https://claude.ai/customize/plugins/id/dd919b38-cf83-4412-8aea-1b15b6764886%40anthropic-plugin-directory)
+and install it — or, in Claude on the web, on desktop or in Cowork, open
+**Settings → Plugins → Discover**, search for BridgeApp and install it. Then
 open the plugin's **Connectors** tab, choose BridgeApp and click **Connect** to
 sign in.
 
@@ -87,7 +89,7 @@ URL. On a self-hosted workspace, install the plugin first anyway — the skills
 apply to any workspace — and then register the workspace's own endpoint, shown
 on its **Agents → Connect Apps** page, next to it.
 
-Claude, with a Claude account: open **Customize → Connectors**, click **+**,
+Claude, with a Claude account: open **Settings → Connectors**, click **+**,
 choose **Add custom connector**, paste the workspace's endpoint and connect it.
 Leave the BridgeApp connector that came with the plugin unconnected. Claude
 Code signed in with the same account picks up both.
