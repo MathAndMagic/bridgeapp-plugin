@@ -54,13 +54,42 @@ not exist.
 
 ## Claude Code
 
-Install the plugin on every workspace — it registers the MCP server and installs
-the BridgeApp skills next to it:
+The plugin registers the MCP server and installs the BridgeApp skills next to
+it. Every workspace needs it, but only one copy of it. First check whether it is
+already there:
 
 ```
-claude plugin marketplace add MathAndMagic/bridgeapp-plugin
-claude plugin install bridgeapp@bridgeapp
+claude plugin list
 ```
+
+- **`bridgeapp@synced` or `bridgeapp@bridgeapp` is listed.** The plugin is
+  installed: `@synced` came from the Claude directory through the user's Claude
+  account, `@bridgeapp` from this repository's marketplace. Skip the install and
+  go on to the sign-in below.
+- **Neither is listed.** Check how Claude Code signs in:
+
+  ```
+  claude auth status
+  ```
+
+  With `"authMethod": "claude.ai"`, the user signs in with a Claude account, and
+  the plugin comes from the Claude directory rather than from a command:
+
+  > **User step.** Ask the user to open Claude on the web or in the desktop app,
+  > go to **Customize → Plugins → Discover**, find BridgeApp and add it, then
+  > type `/reload-plugins` in Claude Code or restart it. Wait for the user to
+  > confirm, then run `claude plugin list` again and expect `bridgeapp@synced`.
+  > Do not also install it from the marketplace below: a Claude account already
+  > syncs the directory copy, and a second copy takes its place.
+
+  Only when Claude Code does not sign in with a Claude account — an API key,
+  Amazon Bedrock or Google Vertex AI — install the plugin from this
+  repository's marketplace:
+
+  ```
+  claude plugin marketplace add MathAndMagic/bridgeapp-plugin
+  claude plugin install bridgeapp@bridgeapp
+  ```
 
 The plugin ships the hosted server URL and cannot be repointed. Given a
 different one, install the plugin anyway for its skills, then skip the sign-in
@@ -189,6 +218,7 @@ banner with the specific next action for every line that is not `✓`.
 
 - Connect Apps, in the app: **Agents → Connect Apps**
 - Plugin and skills: `https://github.com/MathAndMagic/bridgeapp-plugin`
+- Claude plugins and the Claude directory: `https://claude.com/docs/plugins/overview`
 - Claude Code MCP: `https://code.claude.com/docs/en/mcp`
 - Codex MCP: `https://learn.chatgpt.com/docs/extend/mcp`
 - Cursor MCP: `https://cursor.com/docs/mcp`

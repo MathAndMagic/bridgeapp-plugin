@@ -4,7 +4,22 @@ Official plugins that connect a coding agent to a [BridgeApp](https://bridgeapp.
 workspace over MCP, so it can read and act on tasks, chats, threads, pages, and
 projects under the signed-in account's own permissions.
 
-## Claude Code
+## Claude and Claude Code
+
+BridgeApp is in the Claude directory. In Claude on the web, on desktop or in
+Cowork, open **Customize → Plugins → Discover**, find BridgeApp and add it, then
+open the plugin's **Connectors** tab, choose BridgeApp and click **Connect** to
+sign in.
+
+A plugin added to a Claude account reaches Claude Code on its own, as
+`bridgeapp@synced`, whenever Claude Code signs in with the same account
+(Claude Code 2.1.273 or later). Restart Claude Code or type `/reload-plugins`
+to load it, then sign in from `/mcp` if BridgeApp asks for it.
+
+Claude Code without a Claude account — an API key, Amazon Bedrock or Google
+Vertex AI — installs the plugin from this repository's marketplace instead. Do
+not do this with a Claude account as well: the directory copy already syncs, and
+a second copy takes its place.
 
 ```
 claude plugin marketplace add MathAndMagic/bridgeapp-plugin
@@ -72,7 +87,12 @@ URL. On a self-hosted workspace, install the plugin first anyway — the skills
 apply to any workspace — and then register the workspace's own endpoint, shown
 on its **Agents → Connect Apps** page, next to it.
 
-Claude Code:
+Claude, with a Claude account: open **Customize → Connectors**, click **+**,
+choose **Add custom connector**, paste the workspace's endpoint and connect it.
+Leave the BridgeApp connector that came with the plugin unconnected. Claude
+Code signed in with the same account picks up both.
+
+Claude Code without a Claude account:
 
 ```
 claude mcp add --scope user --transport http bridgeapp https://mcp.example.com/mcp
