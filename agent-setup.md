@@ -75,10 +75,13 @@ claude plugin list
   With `"authMethod": "claude.ai"`, the user signs in with a Claude account, and
   the plugin comes from the Claude directory rather than from a command:
 
-  > **User step.** Ask the user to open Claude on the web or in the desktop app,
-  > go to **Customize → Plugins → Discover**, find BridgeApp and add it, then
-  > type `/reload-plugins` in Claude Code or restart it. Wait for the user to
-  > confirm, then run `claude plugin list` again and expect `bridgeapp@synced`.
+  > **User step.** Ask the user to open
+  > `https://claude.ai/customize/plugins/id/dd919b38-cf83-4412-8aea-1b15b6764886%40anthropic-plugin-directory`
+  > and install the BridgeApp plugin — or, in Claude, open
+  > **Settings → Plugins → Discover**, search for BridgeApp and install it —
+  > then type `/reload-plugins` in Claude Code or restart it. Wait for the user
+  > to confirm, then run `claude plugin list` again and expect
+  > `bridgeapp@synced`.
   > Do not also install it from the marketplace below: a Claude account already
   > syncs the directory copy, and a second copy takes its place.
 
@@ -218,6 +221,7 @@ banner with the specific next action for every line that is not `✓`.
 
 - Connect Apps, in the app: **Agents → Connect Apps**
 - Plugin and skills: `https://github.com/MathAndMagic/bridgeapp-plugin`
+- BridgeApp in the Claude directory: `https://claude.ai/customize/plugins/id/dd919b38-cf83-4412-8aea-1b15b6764886%40anthropic-plugin-directory`
 - Claude plugins and the Claude directory: `https://claude.com/docs/plugins/overview`
 - Claude Code MCP: `https://code.claude.com/docs/en/mcp`
 - Codex MCP: `https://learn.chatgpt.com/docs/extend/mcp`
