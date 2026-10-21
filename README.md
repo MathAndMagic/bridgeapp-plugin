@@ -55,7 +55,10 @@ marketplace** and then **Add from a repository**, enter
 
 The manifest lives in `.codex-plugin/plugin.json` and the marketplace in
 `.agents/plugins/marketplace.json`; both read the same `skills/` and `.mcp.json`
-as the Claude Code and Cursor manifests.
+as the Claude Code and Cursor manifests. The manifest also carries the OpenAI
+directory listing and the review metadata (test cases, commerce declaration,
+release notes) under `extensions["com.openai"]`. Reviewer credentials and the
+demo video URL are entered in the OpenAI portal, never in this repository.
 
 ## Other agents
 
@@ -119,7 +122,7 @@ their own.
 plugins/bridgeapp/
   .claude-plugin/plugin.json   Claude Code manifest
   .cursor-plugin/plugin.json   Cursor manifest
-  .codex-plugin/plugin.json    Codex / ChatGPT manifest (directory metadata, logo)
+  .codex-plugin/plugin.json    Codex / ChatGPT manifest (OpenAI directory listing and review metadata)
   .mcp.json                    the hosted BridgeApp MCP server
   skills/                      how to work with a BridgeApp workspace
 ```
