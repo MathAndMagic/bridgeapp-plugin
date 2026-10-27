@@ -1,6 +1,6 @@
 {
   "name": "bridgeapp",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Connects your assistant to a BridgeApp workspace over MCP — tasks, chats, threads, pages, and projects — with skills for the workflows around them.",
   "author": {
     "name": "Math & Magic",
@@ -57,22 +57,22 @@
               "expected_behavior": "Returns the demo user's ongoing tasks with each task's key, title and status. Nothing is created or changed."
             },
             {
-              "description": "Reads one task by its key together with its plan document, comments and subtasks, and summarizes it.",
-              "prompt": "Read BridgeApp task CR-1 and summarize its plan, comments and subtasks",
-              "tools_triggered": "get_task_by_key, get_task_plan_context, list_task_comments, list_task_subtasks",
-              "expected_behavior": "Summarizes task CR-1 of the Claude Review project: its plan, the points raised in its comments and its subtasks with their statuses, and says so when one of these is empty. The summary is grounded in that task only, and nothing is created or changed."
+              "description": "Reads one task by its key and summarizes its fields and contents.",
+              "prompt": "Read BridgeApp task MCL-13 and summarize it",
+              "tools_triggered": "get_task_by_key",
+              "expected_behavior": "Summarizes task MCL-13 'Design landing page hero section' with its status, assignee, reporter, priority and due date, and says that its description is empty and that it has no comments, attachments or subtasks. Nothing is created or changed."
             },
             {
               "description": "Finds which tasks of a project are blocked and names the tasks that block them.",
-              "prompt": "Which tasks in the Claude Review project are blocked, and by what?",
+              "prompt": "Which tasks in the ChatGPT Review project are blocked, and by what?",
               "tools_triggered": "list_projects, list_tasks, list_task_blockers",
-              "expected_behavior": "Names each blocked task of the Claude Review project together with the key, title and status of the task that blocks it. Nothing is created or changed."
+              "expected_behavior": "Finds the Chat GPT Review project and names CR-3 'Write release notes for 2.3' as blocked by CR-2 'QA large report exports', with the status of both tasks. Nothing is created or changed."
             },
             {
               "description": "Creates one task in a named project from a short bug report, using the project's own task types.",
-              "prompt": "Create a BridgeApp task in the Claude Review project: 'Export button does nothing on Safari', type Bug",
+              "prompt": "Create a BridgeApp task in the ChatGPT Review project: 'Export button does nothing on Safari', type Bug",
               "tools_triggered": "list_projects, get_task_create_context, create_task",
-              "expected_behavior": "Creates exactly one task of type Bug titled 'Export button does nothing on Safari' in the Claude Review project and returns its key and a link to it. No other task is created or changed."
+              "expected_behavior": "Creates exactly one task of type Bug titled 'Export button does nothing on Safari' in the Chat GPT Review project and returns its key and a link to it. No other task is created or changed."
             },
             {
               "description": "Finds a channel by name and summarizes its latest messages.",
